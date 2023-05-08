@@ -4,6 +4,7 @@
 
 using namespace std;
 
+constexpr bool DRY_RUN = true;
 
 int main(void) {
     vector<Student> students = {
@@ -15,7 +16,7 @@ int main(void) {
         // Student("Yurii D")
     };
     
-    Calculus calc = Calculus(students);
+    Calculus calc = Calculus(students, DRY_RUN);
 
     calc.startLesson();
     const int END_RANGE = 4;

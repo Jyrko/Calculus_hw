@@ -16,6 +16,7 @@ class Student {
         bool isPresent;
         STATUS status;
 
+
     public: 
         Student(): name("none"), isPresent(false), status(STATUS::NOTHING) {};
         Student(string n, STATUS stat = STATUS::NOTHING, bool present = true): name(n), isPresent(present), status(stat) {};

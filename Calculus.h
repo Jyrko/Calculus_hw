@@ -16,9 +16,10 @@ class Calculus {
         vector<Student> students;
         int lastStudentIndex;
         static int exerciseCounter;
+        const bool DRY_RUN;
 
     public: 
-      Calculus(vector<Student>& students, int lastStudentIndex = 0): students(students), lastStudentIndex(lastStudentIndex) {};
+      Calculus(vector<Student>& students, const bool isDryRun = false, int lastStudentIndex = 0): students(students), DRY_RUN(isDryRun), lastStudentIndex(lastStudentIndex) {};
       
       void startLesson();
       Student& goToBlackboard(bool last_iter);

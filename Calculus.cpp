@@ -60,19 +60,23 @@ Student& Calculus::goToBlackboard(bool last_iter) {
         lastStudentIndex = (lastStudentIndex + 1) % students.size();
     }
 
-    if (last_iter) {
-        students[lastStudentIndex].setStatus(STATUS::LAST_COWBOY);
-    } else {
-        students[lastStudentIndex].incrementStatus();
+    if (!DRY_RUN) {
+        if (last_iter) {
+            students[lastStudentIndex].setStatus(STATUS::LAST_COWBOY);
+        } else {
+            students[lastStudentIndex].incrementStatus();
+        }
     }
     return students[lastStudentIndex];
 }
 
 
 void Calculus::endLesson() {
-    for (Student& stud: students) {
-        if (stud.getStatus() != STATUS::NOTHING && stud.getStatus() != STATUS::LAST_COWBOY ) {
-            stud.incrementStatus();
+    if (!DRY_RUN) {
+        for (Student& stud: students) {
+            if (stud.getStatus() != STATUS::NOTHING && stud.getStatus() != STATUS::LAST_COWBOY ) {
+                stud.incrementStatus();
+            }
         }
     }
     saveStudentsToFile(students);
